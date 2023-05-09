@@ -1,0 +1,3 @@
+{% func Home() %}
+  <div id="honey-app"></div>
+{% endfunc %}
