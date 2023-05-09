@@ -16,7 +16,6 @@ type ConfigService interface {
 	ProxyAuthNameHeader() string
 }
 
-//nolint:interfacebloat
 type DatabaseService interface {
 	FetchUserByUsername(ctx context.Context, email string) (dbx.User, error)
 	CreateUser(ctx context.Context, arg dbx.CreateUserParams) (dbx.User, error)
