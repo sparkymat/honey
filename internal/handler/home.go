@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	"github.com/sparkymat/honey/view"
+	"github.com/sparkymat/honey/internal/view"
 )
 
 func Home() echo.HandlerFunc {
@@ -19,7 +19,7 @@ func Home() echo.HandlerFunc {
 		}
 
 		pageHTML := view.Home()
-		htmlString := view.Layout("honey", csrfToken, pageHTML)
+		htmlString := view.BasicLayout("honey", csrfToken, pageHTML)
 
 		//nolint:wrapcheck
 		return c.HTMLBlob(http.StatusOK, []byte(htmlString))
