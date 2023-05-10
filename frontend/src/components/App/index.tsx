@@ -14,7 +14,11 @@ import {
   Text,
   useMantineTheme,
 } from '@mantine/core';
-import { IconBrightness, IconReceipt } from '@tabler/icons-react';
+import {
+  IconBrightness,
+  IconDashboard,
+  IconReceipt,
+} from '@tabler/icons-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocalStorage } from '@mantine/hooks';
 import Home from '../Home';
@@ -26,6 +30,7 @@ import { AppDispatch } from '../../store';
 interface Path {
   href: string;
   label: string;
+  icon: React.JSX.Element;
 }
 
 const App = () => {
@@ -48,17 +53,19 @@ const App = () => {
     {
       href: '/',
       label: 'Dashboard',
+      icon: <IconDashboard size="1rem" stroke={1.5} />,
     },
     {
       href: '/transactions',
       label: 'Transactions',
+      icon: <IconReceipt size="1rem" stroke={1.5} />,
     },
   ];
 
   const onNavClick = useCallback(
-    (p: Path) => {
-      dispatch(updatePath(p.href));
-      window.location.href = `/#${p.href}`;
+    (p: string) => {
+      dispatch(updatePath(p));
+      window.location.href = `/#${p}`;
     },
     [dispatch],
   );
@@ -85,8 +92,8 @@ const App = () => {
                 active={isActive(p.href)}
                 variant="subtle"
                 tt="uppercase"
-                icon={<IconReceipt size="1rem" stroke={1.5} />}
-                onClick={() => onNavClick(p)}
+                icon={p.icon}
+                onClick={() => onNavClick(p.href)}
               />
             ))}
           </Navbar>
@@ -112,7 +119,7 @@ const App = () => {
                 wrap="wrap"
                 sx={{ width: '100%' }}
               >
-                <Anchor href="/#/">
+                <Anchor component="button" onClick={() => onNavClick('/')}>
                   <Text tt="uppercase">honey</Text>
                 </Anchor>
                 <ActionIcon onClick={() => toggleColorScheme()}>
