@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo/v4"
-	"github.com/sparkymat/honey/dbx"
+	"github.com/sparkymat/honey/internal/dbx"
 )
 
 const (

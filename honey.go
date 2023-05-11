@@ -10,7 +10,7 @@ import (
 	"github.com/labstack/gommon/log"
 	"github.com/sparkymat/honey/config"
 	"github.com/sparkymat/honey/database"
-	"github.com/sparkymat/honey/dbx"
+	"github.com/sparkymat/honey/internal/dbx"
 	"github.com/sparkymat/honey/internal/route"
 )
 

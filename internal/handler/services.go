@@ -3,7 +3,7 @@ package handler
 import (
 	"context"
 
-	"github.com/sparkymat/honey/dbx"
+	"github.com/sparkymat/honey/internal/dbx"
 )
 
 type ConfigService interface {

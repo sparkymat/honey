@@ -6,7 +6,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
-	"github.com/sparkymat/honey/dbx"
+	"github.com/sparkymat/honey/internal/dbx"
 	"golang.org/x/crypto/bcrypt"
 )
 
